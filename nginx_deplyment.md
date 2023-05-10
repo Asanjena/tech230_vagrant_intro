@@ -23,4 +23,4 @@ Afte this, you can type: clear in the terminal to remove all the outputs from th
 1. In the file, for the config.vm.network line, add "private network" followed by your ip address. For example - config.vm.network "private_network", ip:"192.168.10.100"
 2. Exit VM by typing: exit, in the terminal
 3. To implement instructions enetered in the file, type: Vagrant reload 
-4. Copy the ip address into a web browser to access your web server
+4. Copy the ip address into a web browser to access your web server.
