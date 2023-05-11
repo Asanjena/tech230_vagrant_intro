@@ -26,6 +26,55 @@ Afte this, you can type: clear in the terminal to remove all the outputs from th
 4. Copy the ip address into a web browser to access your web server.
 
 
+
+### Automating Nginx Deployment
+Firstly, if you have a VM running, destroy it. Also make sure that you are in the right folder and have the corresponding vagrant file 
+
+### Creating a provision
+
+In the vagrant file, you can write a shell script. Vagrant will then call this and send it to the VM when it is set up
+
+1. Create a provision.sh file in same location that your vagrant file is located
+2. In line 1 of your provision.sh file, enter the following
+```
+~!/bin/bash
+```
+This says that it is a shell file
+3. in the following lines, type the following: (ADD IMAGE)
+```
+sudo apt-get update -y
+
+sudo apt-get upgrade -y
+
+sudo apt-get install nginx -y
+
+sudo systemctl start nginx
+```
+
+### Add provision
+To add your provision to the vagrant file, in the vagrant file you need to add the following line:
+```
+config.vm.provision "shell", path: "provision.sh"
+
+### Accessing the automated nginx deployment
+
+To access, use the following steps: (ADD IMAGE)
+1. in terminal, type:
+```
+vagrant up
+```
+2. Follow this with:
+```
+vagrant ssh
+```
+And you should be good to go!
+
+
+
+
+
+
+
 ### Linux and bash commands
 
 - **touch** used to create new files 
@@ -62,6 +111,47 @@ mkdir my_photos
 - **r** This means you have permission to read only
 - **w** Have permission to read and write
 - **x** Permission to execute/ run file
+- **|** This is called a pipe. it can be used to combine commands
+```
+ls | head -1
+```
+- **tail** Will show the last part of a file
+```
+tail -2 
+line 5
+line 6
+```
+- **head** Will display the first part of a file
+```
+head -1
+line 1
+```
+- **grep** is used to search for words
+```
+grep hello
+```
+
+- **top** shows you in real time the processes running and the resources being used. Use 'q' key to exit
+- **ps** tells you the processes that are being run by the user
+- **ps aux** more complete overview and does not lock you like top
+
+### Making a process
+
+Lets make a process called sleep:
+```
+sleep 120 &
+3629
+```
+- The '120' part tells you the number of seconds the process will run for
+- '3629' refers to the process id. Each individual process will have its own process id
+
+- **kill** This command will kill a process
+```
+kill sleep 120
+```
+- **kill -9** This is like the 'kill' command, but more forceful
+- **ctrl + z** used is a process is running and crashes. Also used to stop a process, but will not kill it
+- **fg** brings backgroud processes to foreground 
 
 
 
