@@ -36,11 +36,14 @@ In the vagrant file, you can write a shell script. Vagrant will then call this a
 
 1. Create a provision.sh file in same location that your vagrant file is located
 2. In line 1 of your provision.sh file, enter the following
+
 ```
 ~!/bin/bash
 ```
+
 This says that it is a shell file
 3. in the following lines, type the following: (ADD IMAGE)
+
 ```
 sudo apt-get update -y
 
@@ -52,18 +55,23 @@ sudo systemctl start nginx
 ```
 
 ### Add provision
+
 To add your provision to the vagrant file, in the vagrant file you need to add the following line:
+
 ```
 config.vm.provision "shell", path: "provision.sh"
+```
 
 ### Accessing the automated nginx deployment
 
 To access, use the following steps: (ADD IMAGE)
 1. in terminal, type:
+
 ```
 vagrant up
 ```
 2. Follow this with:
+
 ```
 vagrant ssh
 ```
